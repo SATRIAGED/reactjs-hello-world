@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: openjdk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openjdk
+  template:
+    metadata:
+      labels:
+        app: openjdk
+    spec:
+      containers:
+      - name: openjdk
+        image: suranagivinod/openjdk8
+        ports:
+        - containerPort: 8080
