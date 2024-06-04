@@ -23,7 +23,7 @@ agent any
 
      steps {
         script { 
-       kubernetesDeploy(configs: "deployment.yml", "service.yml", kubeconfigId: "kubeconfig")               
+       kubernetesDeploy (configs: 'deployment.yml', 'service.yml', kubeconfigId: 'kubeconfig')               
      }
        //kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
