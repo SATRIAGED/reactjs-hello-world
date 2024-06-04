@@ -20,10 +20,13 @@ agent any
          }
      }
  stage("Deploy Kubernetes") {
-
      steps {
-        script { 
-       kubernetesDeploy (configs: 'deployment.yml', 'service.yml', kubeconfigId: 'kubeconfig')               
+        script {
+     withKubeConfig([credentialsId: 'kubeconfig']) 
+         {
+       sh "kubectl apply -f deployment.yml"
+       sh "kubectl apply -f service.yml"
+       }                
      }
        //kubernetesDeploy(configs: "deployment.yml", "service.yml")
        }                
