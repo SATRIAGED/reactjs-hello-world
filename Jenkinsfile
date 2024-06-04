@@ -22,7 +22,7 @@ agent any
  stage("Deploy Kubernetes") {
      steps {
         script {
-     withKubeConfig([credentialsId: 'kubeconfig']) 
+     withKubeConfig([credentialsId: 'kubeconfig', serverURL: 'http://127.0.0.1:8001']) 
          {
        sh "kubectl create -f deployment.yml"
        sh "kubectl create -f service.yml"
