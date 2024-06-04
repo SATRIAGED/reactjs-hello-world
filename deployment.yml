@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: openjdk
+  name: openjdk-deployment
 spec:
   replicas: 1
   selector:
