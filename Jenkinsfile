@@ -3,7 +3,6 @@ pipeline {
 agent any
  environment {
      PROJECT_ID = 'jenkins'
-     CLUSTER_NAME = 'minikube'
      dockerimagename = 'suranagivinod/openjdk8'
  }
  stages {
@@ -22,7 +21,7 @@ agent any
  stage("Deploy Kubernetes") {
      steps {
         script {
-     withKubeConfig([credentialsId: 'kubeconfig', serverURL: 'http://127.0.0.1:8001']) 
+     withKubeConfig([credentialsId: 'kubeconfig']) 
          {
        sh "kubectl create -f deployment.yml"
        sh "kubectl create -f service.yml"
